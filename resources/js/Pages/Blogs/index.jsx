@@ -4,13 +4,14 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head } from '@inertiajs/inertia-react';
 
-function index({ auth }) {
+const Index = ({ auth }) => {
     const { data, setData, post, processing, reset, errors } = useForm({
         title: '',
         body: ''
     })
     const submit = (e) => {        
         e.preventDefault()
+        //console.log(data)
         post(route('posts.store'), {onSuccess: ()=> reset() })
     }
     return (
@@ -51,4 +52,4 @@ function index({ auth }) {
     )
 }
 
-export default index
+export default Index
